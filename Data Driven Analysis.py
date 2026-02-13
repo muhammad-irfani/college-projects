@@ -12,14 +12,14 @@ IEA_df = IEA_df[IEA_df.unit != 'percent']
 IEA_df = IEA_df[IEA_df.region.isin(['USA', 'China', 'Germany', 'United Kingdom', 'France', 'Norway', 'Iceland', 'United Kingdom', 'Netherlands'])]
 
 #read exel file into pandas dataframe
-Sales_Brand_df = pd.read_excel('/Users/gracecostello/Desktop/F2024/ISI 300/EV_Sales_By_Brand.xlsx')
+Sales_Brand_df = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/EV_Sales_By_Brand.xlsx')
 
 #read exel file into pandas dataframe & print different sheets from same excel file
-df_PHEV = pd.read_excel('/Users/gracecostello/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='PHEV')
+df_PHEV = pd.read_excel('/Users/muhammadirfanio/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='PHEV')
 #read exel file into pandas dataframe & print different sheets from same excel file
-df_BEV = pd.read_excel('/Users/gracecostello/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='BEV')
+df_BEV = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='BEV')
 #read exel file into pandas dataframe & print different sheets from same excel file
-df_NCS = pd.read_excel('/Users/gracecostello/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='New Cars Sold')
+df_NCS = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='New Cars Sold')
 
 #eliminate data with years other than 2010 or 2023 in IEA_df
 IEA_df = IEA_df[IEA_df.year.isin([2010, 2023])]
@@ -42,10 +42,10 @@ IEA_df = IEA_df[IEA_df.parameter == 'EV sales']
 IEA_df = IEA_df[IEA_df.category == 'Historical']
 
 #save previous query as excel file to desktop
-IEA_df.to_excel('/Users/gracecostello/Desktop/F2024/ISI 300/IEA_EV_Sales_2010_2023.xlsx', index=False)
+IEA_df.to_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/IEA_EV_Sales_2010_2023.xlsx', index=False)
 
 #input IEA_EV_Sales_2010_2023.xlsx into pandas dataframe
-IEA_cleaned_df = pd.read_excel('/Users/gracecostello/Desktop/F2024/ISI 300/IEA_EV_Sales_2010_2023.xlsx')
+IEA_cleaned_df = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/IEA_EV_Sales_2010_2023.xlsx')
 
 #remove all rows with powertrain other than BEV in IEA_cleaned_df
 IEA_cleaned_df = IEA_cleaned_df[IEA_cleaned_df.powertrain == 'BEV']
@@ -64,9 +64,9 @@ merged_df = merged_df.rename(columns={'2010_x': '2010 EV Total', '2023_x': '2023
 merged_df = merged_df.rename(columns={'2010_y': '2010 EV%', '2023_y': '2023 EV%'})
 
 #save merged_df as excel file to desktop
-merged_df.to_excel('/Users/gracecostello/Desktop/F2024/ISI 300/Merged_IEA_BEV_Sales.xlsx', index=False)
+merged_df.to_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Merged_IEA_BEV_Sales.xlsx', index=False)
 #input new csv file into pandas dataframe
-population_df = pd.read_csv('/Users/gracecostello/Desktop/F2024/ISI 300/world_population.csv')
+population_df = pd.read_csv('/Users/muhammadirfani/Desktop/F2024/ISI 300/world_population.csv')
 
 #change the column name "Country/Territory" to "region"
 population_df = population_df.rename(columns={'Country/Territory': 'region'})
@@ -84,7 +84,7 @@ population_df['Population Change'] = (population_df['2022 Population'] - populat
 #merge population_df and merged_df on region
 final_df = pd.merge(population_df, merged_df, on='region', how='inner')
 #save final_df as excel file to desktop
-final_df.to_excel('/Users/gracecostello/Desktop/F2024/ISI 300/Final_Merged_Data.xlsx', index=False)
+final_df.to_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Final_Merged_Data.xlsx', index=False)
 print(final_df)
 
 #create a bar graph showing the 2010 EV Total and 2023 EV Total for each region
