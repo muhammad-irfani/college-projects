@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-# simple_canary.py
-# Minimal canary: creates decoy HTML and serves /token/<uuid> endpoint that logs hits.
+
 import http.server, socketserver, socket, uuid, os, datetime, urllib.parse
 
 PORT = 8080
@@ -63,3 +61,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
