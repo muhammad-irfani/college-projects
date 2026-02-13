@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 #read CSV file into pandas dataframe
-IEA_df = pd.read_csv('/Users/gracecostello/Desktop/F2024/ISI 300/IEA Global EV Data 2024.csv')
+IEA_df = pd.read_csv('/Users/muhammadirfani/Desktop/F2024/ISI 300/IEA Global EV Data 2024.csv')
 
 #filter out rows with unit of "percent"
 IEA_df = IEA_df[IEA_df.unit != 'percent']
