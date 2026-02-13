@@ -63,37 +63,37 @@ IEA_df = IEA_df[IEA_df.parameter == 'EV sales']
 IEA_df = IEA_df[IEA_df.category == 'Historical']
 
 # Save filtered IEA_df as an Excel file
-IEA_df.to_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/IEA_EV_Sales_Years_Filtered.xlsx', index=False)
+IEA_df.to_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/IEA_EV_Sales_Years_Filtered.xlsx', index=False)
 
 # Input the saved file back into a pandas dataframe
-IEA_cleaned_df = pd.read_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/IEA_EV_Sales_Years_Filtered.xlsx')
+IEA_cleaned_df = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/IEA_EV_Sales_Years_Filtered.xlsx')
 
 # Remove rows with powertrain other than BEV in IEA_cleaned_df
 IEA_cleaned_df = IEA_cleaned_df[IEA_cleaned_df.powertrain == 'BEV']
 print(IEA_cleaned_df.head())
 
 # Read additional Excel sheets
-df_BEV = pd.read_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='BEV')
+df_BEV = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='BEV')
 df_BEV = df_BEV.rename(columns={'Country/area': 'region'})
 
 # Read Sales by Brand Excel file
-Sales_Brand_df = pd.read_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/EV_Sales_By_Brand.xlsx')
+Sales_Brand_df = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/EV_Sales_By_Brand.xlsx')
 
 # Print first 5 rows of Sales_Brand_df to check if it has been read in correctly
 print(Sales_Brand_df.head())
 
 # Read additional sheets for PHEV and New Cars Sold
-df_PHEV = pd.read_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='PHEV')
+df_PHEV = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='PHEV')
 print(df_PHEV.head(3))
 
-df_NCS = pd.read_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='New Cars Sold')
+df_NCS = pd.read_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Global_Data_EV.xlsx', sheet_name='New Cars Sold')
 print(df_NCS.head(3))
 
 # Merge IEA_cleaned_df and df_BEV on region
 merged_df = pd.merge(IEA_cleaned_df, df_BEV, on='region', how='inner')
 
 # Save the merged dataframe as an Excel file
-merged_df.to_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/Merged_IEA_BEV_Sales.xlsx', index=False)
+merged_df.to_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Merged_IEA_BEV_Sales.xlsx', index=False)
 
 # Load the population data from the uploaded CSV
 population_df = pd.read_csv('/mnt/data/world_population.csv')
@@ -108,4 +108,4 @@ IEA_population_merged = pd.merge(IEA_cleaned_df, population_df, on='region', how
 print(IEA_population_merged.head())
 
 # Save the new merged dataframe with population data to an Excel file
-IEA_population_merged.to_excel('/Users/kainatshafique/Desktop/F2024/ISI 300/Merged_IEA_BEV_Sales_Population.xlsx', index=False)
+IEA_population_merged.to_excel('/Users/muhammadirfani/Desktop/F2024/ISI 300/Merged_IEA_BEV_Sales_Population.xlsx', index=False)
