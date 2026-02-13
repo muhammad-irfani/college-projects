@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 # Read CSV file into pandas dataframe
-IEA_df = pd.read_csv('/Users/kainatshafique/Desktop/F2024/ISI 300/IEA Global EV Data 2024.csv')
+IEA_df = pd.read_csv('/Users/muhammadirfani/Desktop/F2024/ISI 300/IEA Global EV Data 2024.csv')
 
 # Print shape of dataframe to check if it has been read in correctly
 print(IEA_df.shape)
